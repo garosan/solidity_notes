@@ -1,6 +1,8 @@
 # Encode EVM Bootcamp Notes
 
-[Bootcamp Information](https://www.encode.club/evm-bootcamp)
+- [Bootcamp Information](https://www.encode.club/evm-bootcamp)
+- [Notion Guide](https://encodeclub.notion.site/EVM-Bootcamp-Q4-2024-84ef51c6eb20450f8100729c2df48329)
+- [Repo](https://github.com/Encode-Club-Solidity-Bootcamp)
 
 ## Curriculum
 

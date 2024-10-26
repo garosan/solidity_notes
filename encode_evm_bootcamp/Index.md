@@ -14,5 +14,3 @@
 - Week 6: Advanced Coding
 - Week 7: Partner presentations
 - Week 8: Project week
-
-## Session Breakdown

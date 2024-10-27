@@ -107,3 +107,83 @@ contract HelloWorld {
     }
 }
 ```
+
+Read about [state variables](https://docs.soliditylang.org/en/latest/structure-of-a-contract.html#state-variables)
+
+### Visibility
+
+Let's talk a little bit about visibility, functions and state variables have to declare whether they are accessible by other contracts.
+
+State variables can be declared as:
+
+- public
+- private
+- internal
+
+Functions can be declared as:
+
+- public - any contract and account can call
+- private - only inside the contract that defines the function
+- internal- only inside contract that inherits an internal function
+- external - only other contracts and accounts can call
+
+You can see for example that if we mark functions as internal or private, the buttons to interact with them in Remix will dissappear when we redeploy, try it:
+
+```solidity
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity >=0.7.0 <0.9.0;
+
+contract HelloWorld {
+    string private text;
+
+    constructor() {
+        text = "Hello World";
+    }
+
+    function helloWorld() internal view returns (string memory)  {
+        return text;
+    }
+
+    function setText(string memory newText) private {
+        text = newText;
+    }
+}
+```
+
+If you declare a function as external, you can't call it within your own contract. This would produce an error:
+
+```solidity
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity >=0.7.0 <0.9.0;
+
+contract HelloWorld {
+    string private text;
+
+    constructor() {
+        setText("Hello from constructor!");
+    }
+
+    function helloWorld() public view returns (string memory)  {
+        return text;
+    }
+
+    function setText(string memory newText) external {
+        text = newText;
+    }
+}
+```
+
+The difference between internal and private is that private state variables or functions can't be accessed from contracts that inherit from the original contract where the variable or function was declared.
+
+### State mutability
+
+Now let's talk about state mutability. **State mutability refers to the ability of a function to modify the state of the blockchain.**
+
+A function can alter the contract's state, read it, or neither.
+
+Types of State Mutability
+
+- `pure`
+- `view` - can read data but can't modify the blockchain state. Calling them directly is gasless.
+- `payable`
+- `non payable` - default mutability. They can read and modify state variables, allowing for full interaction with the contract, and thus pay gas.

@@ -42,3 +42,37 @@ Its important to read and understand these concepts at some point:
 - If you check [Sepolia transactions](https://sepolia.etherscan.io/txs) you will see that a lot of them are not transacting any money.
 
 - If you click on a random transaction like [this one](https://sepolia.etherscan.io/tx/0x14d53b5a0f374ad64d44a773434cb5cc84e4e0db2dd5b671fbfd57d70e36fd2c) and you click on _More details_ you will see a bunch of lines and numbers in the input data field. What is this input data?
+
+From [this article](https://info.etherscan.com/understanding-transaction-input-data/):
+
+The Input Data field is a useful feature in a transaction because it enables smart contracts to be executed with different parameters or arguments, allowing for flexibility and customization. Additionally, arbitrary data can be included in the Input Data field, enabling users to attach additional information or metadata to their transactions, like a hacker sending a message to the affected party.
+
+Matheus made a swap on Uniswap with his testnet tokens. Then he showed the transaction data that was showing in his Metamask when he did the transaction was the same that appeared in the input data field in Etherscan.
+
+We are going to learn Solidity directly from the [official documentation](https://docs.soliditylang.org/en/v0.8.28/).
+
+Also, here's the [official Remix documentation](https://remix-ide.readthedocs.io/en/latest/)
+
+Now let's start coding!
+
+Our first Hello World smart contract:
+
+```solidity
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity >=0.7.0 <0.9.0;
+
+contract HelloWorld {
+
+    constructor() {}
+
+    function helloWorld() public view returns (string memory) {}
+
+}
+```
+
+Try to compile this contract in Remix and then you'll see that at the bottom you have access to 2 new things:
+
+- The ABI
+- The bytecode
+
+This is just a curiosity, but you can check a map of the language grammar [here](https://docs.soliditylang.org/en/v0.8.28/layout-of-source-files.html).

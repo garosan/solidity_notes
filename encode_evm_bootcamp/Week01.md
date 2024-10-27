@@ -183,7 +183,16 @@ A function can alter the contract's state, read it, or neither.
 
 Types of State Mutability
 
-- `pure`
+- `pure` - these do not read or modify the blockchain state. They consume the least amount of gas when called externally, as they don’t interact with the blockchain state.
 - `view` - can read data but can't modify the blockchain state. Calling them directly is gasless.
-- `payable`
+- `payable` -
 - `non payable` - default mutability. They can read and modify state variables, allowing for full interaction with the contract, and thus pay gas.
+
+Matheus now shows how to connect Remix to Metamask and how to deploy our `HelloWorld` contract to testnet.
+
+And finally we go briefly into Interfaces but they will be covered in a later lesson.
+
+Finally we also have:
+
+- [Solidity Style Guide](https://docs.soliditylang.org/en/latest/style-guide.html)
+- [NatSpec Format](https://docs.soliditylang.org/en/latest/natspec-format.html#natspec)

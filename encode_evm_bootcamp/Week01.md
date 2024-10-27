@@ -76,3 +76,34 @@ Try to compile this contract in Remix and then you'll see that at the bottom you
 - The bytecode
 
 This is just a curiosity, but you can check a map of the language grammar [here](https://docs.soliditylang.org/en/v0.8.28/layout-of-source-files.html).
+
+## Session 02 - Tuesday
+
+Don't expect Solidity to behave in the same way as other programming languages. Because other programmimng languages were created to interact with regular computers, the internet, etc. Solidity was designed to interact with the EVM.
+
+For example, when we create a contract, we cannot execute the whole code inside the contract at once, but rather we create specific entrypoints, in our case, functions, to interact with the contract.
+
+Be mindful of specifying the correct compiler version that you need for your code, as using an older or newer version than intended could lead to [breaking changes](https://docs.soliditylang.org/en/latest/080-breaking-changes.html).
+
+Code reference:
+
+```solidity
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity >=0.7.0 <0.9.0;
+
+contract HelloWorld {
+    string private text;
+
+    constructor() {
+        text = "Hello World";
+    }
+
+    function helloWorld() public view returns (string memory)  {
+        return text;
+    }
+
+    function setText(string memory newText) public {
+        text = newText;
+    }
+}
+```

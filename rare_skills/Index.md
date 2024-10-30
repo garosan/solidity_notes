@@ -3,8 +3,8 @@
 ## 📄 Table of Contents
 
 - Beginner Solidity Tutorial
-  1. Development Environment
-  2. Fixed Size Datatypes
+  1. [Development Environment](./beginner_solidity_tutorial/01_development_environment.md)
+  2. [Fixed Size Datatypes](./beginner_solidity_tutorial/02_fixed_size_data_types.md)
   3. Set up Foundry
   4. Arithmetic
   5. If Statements

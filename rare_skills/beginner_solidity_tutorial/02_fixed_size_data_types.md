@@ -13,27 +13,27 @@ Solidity has arrays, strings, structs, and other types but we will discuss them 
 Let's look at three different functions that return each of these types
 
 ```solidity
-contract ExampleContract {
-	function getANumber() public pure returns (uint256) {
-		uint256 x = 1;
-		return x;
-	}
+contract DataTypes01 {
+    function getANumber() public pure returns (uint256) {
+        uint256 x = 1;
+        return x;
+    }
 
-	function getABoolean() public pure returns (bool) {
-		bool y = true;
-		return y;
-	}
+    function getABoolean() public pure returns (bool) {
+        bool y = true;
+        return y;
+    }
 
-	function getAnAddress() public pure returns (address) {
-		address z = 0xd8da6bf26964af9d7eed9e03e53415d37aa96045;
-		return z;
-	}
+    function getAnAddress() public pure returns (address) {
+        address z = 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045;
+        return z;
+    }
 
-	function getAnotherAddress() public pure returns (address) {
-		// address of the USDC stablecoin
-    address z2 = 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48;
-    return z2;
-	}
+    function getAnotherAddress() public pure returns (address) {
+        // address of the USDC stablecoin
+        address z2 = 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48;
+        return z2;
+    }
 }
 ```
 
@@ -54,7 +54,7 @@ function getAddressFail()
 
 An address is represented as a hex string that has 40 characters in it, and always starts with 0x. A valid hex string contains the characters [0-9] or [a-f] inclusive.
 
-Warning: be careful when typing addresses manually. Solidity will covert 0x1 into an address with the value 0x0000000000000000000000000000000000000001. If you have an address with less than 40 hex characters, it will pad it with leading zeros.
+Warning: be careful when typing addresses manually. Solidity will convert 0x1 into an address with the value 0x0000000000000000000000000000000000000001. If you have an address with less than 40 hex characters, it will pad it with leading zeros.
 
 If you create an address with more than 40 characters, it won't compile.
 

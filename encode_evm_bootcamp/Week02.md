@@ -47,3 +47,6 @@ We will not be using the ignition feature of Hardhat, we will be using the regul
 Copy the `HelloWorld.sol` code and create a new test file, for now just add a `console.log('Hello World')`.
 
 Now we can start using the Chai Assertion Library.
+
+## Session 07 - Wednesday
+

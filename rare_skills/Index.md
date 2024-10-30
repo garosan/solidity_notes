@@ -3,40 +3,40 @@
 ## Table of Contents
 
 - Beginner Solidity Tutorial
-  - 1.  Development Environment
-  - 2.  Fixed Size Datatypes
-  - 3.  Set up Foundry
-  - 4.  Arithmetic
-  - 5.  If Statements
-  - 6.  For loops
-  - 7.  Introduction to arrays and strings
-  - 8.  Nested Arrays
-  - 9.  Storage Variables
-  - 10. Arrays in Storage
-  - 11. Mappings
-  - 12. Nested Mappings
-  - 13. msg.sender and address(this)
-  - 14. Constructor
-  - 15. Require
-  - 16. ERC-20 Tokens
-  - 17. Tuples
-  - 18. Application binary interface (ABI encoding)
-  - 19. Contracts calling other contracts
-  - 20. Token Exchange Mini Project
-  - 21. Payable functions
-  - 22. Receive
-  - 23. Block.timestamp and block.number
-  - 24. Emitting Events
-  - 25. Inheritance
-  - 26. Modifiers
-  - 27. Immutable variables
-  - 28. Constants
-  - 29. Deploying an ERC-721 to OpenSea
-  - 30. Launch and verify and NFT with Foundry
-  - 31. Units of Ethereum: wei, gwei, and ether
-  - 32. Structs
-  - 33. Strings
-  - 34. Unit Testing in Solidity
+  1.  Development Environment
+  2.  Fixed Size Datatypes
+  3.  Set up Foundry
+  4.  Arithmetic
+  5.  If Statements
+  6.  For loops
+  7.  Introduction to arrays and strings
+  8.  Nested Arrays
+  9.  Storage Variables
+  10. Arrays in Storage
+  11. Mappings
+  12. Nested Mappings
+  13. msg.sender and address(this)
+  14. Constructor
+  15. Require
+  16. ERC-20 Tokens
+  17. Tuples
+  18. Application binary interface (ABI encoding)
+  19. Contracts calling other contracts
+  20. Token Exchange Mini Project
+  21. Payable functions
+  22. Receive
+  23. Block.timestamp and block.number
+  24. Emitting Events
+  25. Inheritance
+  26. Modifiers
+  27. Immutable variables
+  28. Constants
+  29. Deploying an ERC-721 to OpenSea
+  30. Launch and verify and NFT with Foundry
+  31. Units of Ethereum: wei, gwei, and ether
+  32. Structs
+  33. Strings
+  34. Unit Testing in Solidity
 - Your First Solidity Projects
   - Professional Solidity Style Guide
   - Common Solidity Beginner Mistakes

@@ -1,9 +1,8 @@
 # RareSkills Learn Solidity Notes
 
-## Table of Contents
+## 📄 Table of Contents
 
 - Beginner Solidity Tutorial
-
   1. Development Environment
   2. Fixed Size Datatypes
   3. Set up Foundry
@@ -38,15 +37,11 @@
   32. Structs
   33. Strings
   34. Unit Testing in Solidity
-
 - Your First Solidity Projects
-
   - Professional Solidity Style Guide
   - Common Solidity Beginner Mistakes
   - Solidity Beginner Projects
-
 - Intermediate Topics
-
   - Detecting if an address is a smart contract
   - Solidity Function Selector
   - ERC-721 design and security issues
@@ -62,15 +57,12 @@
   - Solidity gasleft()
   - Where to find reentrancy attacks
   - Generate a random number in Solidity
-
 - DeFi Primitives
-
   - The staking algorithm of MasterChef and Synthetix
   - Fixed Point Arithmetic
   - Flashloans
   - Chainlink Price Feeds
   - How DeFi Interest Rates Work
-
 - Uniswap V2 Walkthrough
   - Architecture
   - Price Impact of a Swap
@@ -81,5 +73,7 @@
   - UniswapV2Library
   - Routers
   - Building a Uniswap V2 Clone
+
+## 📁 Additional Resources
 
 [Course Link](https://www.rareskills.io/learn-solidity)

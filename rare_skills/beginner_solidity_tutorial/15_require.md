@@ -2,20 +2,15 @@
 
 Just one more essential Solidity keyword, and then we are ready to create our own ERC20 token.
 
-Although we could use an if statement or check who's calling a function for validation, the elegant way is to use the `require` statement. It forces the transaction to revert if some condition is not met.
+Although we can use an if statement to check if inputs to a function are valid, or the correct msg.sender is calling the function, the elegant way is to use the require statement. The require statement forces the transaction to revert if some condition is not met.
 
 Example code:
 
 ```solidity
-contract ExampleContract {
-    function mustNotBeFive(
-        uint256 x
-    )
-        public
-        pure
-        returns (uint256) {
-            require(x != 5, "five is not valid");
-            return x * 2;
+contract Require01 {
+    function mustNotBeFive(uint256 x) public pure returns (uint256) {
+        require(x != 5, "five is not valid");
+        return x * 2;
     }
 }
 ```

@@ -16,8 +16,8 @@
   11. [Mappings](./beginner_solidity_tutorial/11_mappings.md)
   12. [Nested Mappings](./beginner_solidity_tutorial/12_nested_mappings.md)
   13. [msg.sender and address(this)](./beginner_solidity_tutorial/13_msg.sender_and_address.md)
-  14. Constructor
-  15. Require
+  14. [Constructor](./beginner_solidity_tutorial/14_constructor.md)
+  15. [Require](./beginner_solidity_tutorial/15_require.md)
   16. ERC-20 Tokens
   17. Tuples
   18. Application binary interface (ABI encoding)

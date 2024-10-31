@@ -9,11 +9,11 @@
   4. [Arithmetic](./beginner_solidity_tutorial/04_arithmetic.md)
   5. [If Statements](./beginner_solidity_tutorial/05_if_statements.md)
   6. [For loops](./beginner_solidity_tutorial/06_for_loops.md)
-  7. Introduction to arrays and strings
-  8. Nested Arrays
-  9. Storage Variables
-  10. Arrays in Storage
-  11. Mappings
+  7. [Introduction to arrays and strings](./beginner_solidity_tutorial/07_arrays_and_strings.md)
+  8. [Nested Arrays](./beginner_solidity_tutorial/08_nested_arrays.md)
+  9. [Storage Variables](./beginner_solidity_tutorial/09_storage_variables.md)
+  10. [Arrays in Storage](./beginner_solidity_tutorial/10_arrays_in_storage.md)
+  11. [Mappings](./beginner_solidity_tutorial/11_mappings.md)
   12. Nested Mappings
   13. msg.sender and address(this)
   14. Constructor

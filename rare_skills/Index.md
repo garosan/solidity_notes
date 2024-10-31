@@ -14,7 +14,7 @@
   9. [Storage Variables](./beginner_solidity_tutorial/09_storage_variables.md)
   10. [Arrays in Storage](./beginner_solidity_tutorial/10_arrays_in_storage.md)
   11. [Mappings](./beginner_solidity_tutorial/11_mappings.md)
-  12. [Nested Mappings](./beginner_solidity_tutorial/08_nested_arrays.md)
+  12. [Nested Mappings](./beginner_solidity_tutorial/12_nested_mappings.md)
   13. [msg.sender and address(this)](./beginner_solidity_tutorial/13_msg.sender_and_address.md)
   14. Constructor
   15. Require

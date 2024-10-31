@@ -5,10 +5,10 @@
 - Beginner Solidity Tutorial
   1. [Development Environment](./beginner_solidity_tutorial/01_development_environment.md)
   2. [Fixed Size Datatypes](./beginner_solidity_tutorial/02_fixed_size_data_types.md)
-  3. Set up Foundry
-  4. Arithmetic
-  5. If Statements
-  6. For loops
+  3. [Set up Foundry](./beginner_solidity_tutorial/03_setup_foundry.md)
+  4. [Arithmetic](./beginner_solidity_tutorial/04_arithmetic.md)
+  5. [If Statements](./beginner_solidity_tutorial/05_if_statements.md)
+  6. [For loops](./beginner_solidity_tutorial/06_for_loops.md)
   7. Introduction to arrays and strings
   8. Nested Arrays
   9. Storage Variables

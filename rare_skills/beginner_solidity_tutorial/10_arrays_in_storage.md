@@ -11,41 +11,27 @@ This is because you very rarely do that to arrays that are supplied as function 
 Example:
 
 ```solidity
-contract ExampleContract {
-
+contract ArraysInStorage01 {
     uint256[] public myArray;
 
-    function setMyArray(
-        uint256[] calldata newArray
-    )
-        public {
-            myArray = newArray;
+    function setMyArray(uint256[] calldata newArray) public {
+        myArray = newArray;
     }
 
-    function addToArray(
-        uint256 newItem
-    )
-        public {
-            myArray.push(newItem);
+    function addToArray(uint256 newItem) public {
+        myArray.push(newItem);
     }
 
-    function removeFromArray()
-        public {
-            myArray.pop();
+    function removeFromArray() public {
+        myArray.pop();
     }
 
-    function getLength()
-        public
-        view
-        returns (uint256) {
-            return myArray.length;
+    function getLength() public view returns (uint256) {
+        return myArray.length;
     }
 
-    function getEntireArray()
-        public
-        view
-        returns (uint256[] memory) {
-            return myArray;
+    function getEntireArray() public view returns (uint256[] memory) {
+        return myArray;
     }
 }
 ```

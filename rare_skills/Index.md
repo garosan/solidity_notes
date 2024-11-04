@@ -18,7 +18,7 @@
   13. [msg.sender and address(this)](./beginner_solidity_tutorial/13_msg.sender_and_address.md)
   14. [Constructor](./beginner_solidity_tutorial/14_constructor.md)
   15. [Require](./beginner_solidity_tutorial/15_require.md)
-  16. ERC-20 Tokens
+  16. [ERC-20 Tokens](./beginner_solidity_tutorial/16_erc20_tokens.md)
   17. Tuples
   18. Application binary interface (ABI encoding)
   19. Contracts calling other contracts

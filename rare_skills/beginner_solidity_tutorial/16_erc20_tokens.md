@@ -164,6 +164,320 @@ Allowance enables an address to spend someone else's tokens, up to a limit that 
 
 Why would you allow someone to spend tokens for you? This is a very long story, but to summarize, think about how you would “know” someone transferred you ERC20 tokens. All that happens is a function gets executed and a mapping changed values. You didn’t “receive” the tokens, they just became associated with your address.
 
-[Original Article](https://www.rareskills.io/learn-solidity/erc20-tuotrial)
+The important thing here is that the established pattern for smart contracts to be recipients of transfers is to allow the smart contract to have a certain allowance, then tell that smart contract to withdraw the balance from your account.
+
+When you want to transfer tokens to a smart contract, the typical method is to first approve the smart contract to withdraw a certain amount of tokens from your account. Then, you instruct the smart contract to withdraw the approved amount of tokens from your account. This is a common pattern used in smart contracts to enable token transfers to the contract.
+
+Let's add the tracker for allowance, and a way to give allowance to another user.
+
+```solidity
+
+contract ERC20 {
+    string public name;
+    string public symbol;
+
+    mapping(address => uint256) public balanceOf;
+    address public owner;
+    uint8 public decimals;
+
+    uint256 public totalSupply;
+
+    // owner -> spender -> allowance
+    // this enables an owner to give allowance to multiple addresses
+    mapping(address => mapping(address => uint256)) public allowance;
+    // just added	address public owner;
+
+
+    constructor(string memory _name, string memory _symbol) {
+        name = _name;
+        symbol = _symbol;
+        decimals = 18;
+
+        owner = msg.sender;
+    }
+
+    function mint(address to, uint256 amount) public {
+        require(msg.sender == owner, "only owner can create tokens");
+        totalSupply += amount;
+        balanceOf[owner] += amount;
+    }
+
+    function transfer(address to, uint256 amount) public {
+        require(balanceOf[msg.sender] >= amount, "you aint rich enough");
+        require(to != address(0), "cannot send to address(0)");
+        balanceOf[msg.sender] -= amount;
+        balanceOf[to] += amount;
+    }
+
+    // just added
+    function approve(address spender, uint256 amount) public {
+        allowance[msg.sender][spender] = amount;
+    }
+}
+```
+
+In the line `allowance[msg.sender][spender] = amount;`, spender refers to the address of the account that is being granted the allowance by the `msg.sender`. The `msg.sender` is giving permission to the spender to spend a certain amount of tokens from their account.
+
+Therefore, msg.sender is the owner of the tokens and spender is someone who has been approved by the owner to spend a certain amount of tokens on their behalf.
+
+Ah, but we don’t have a way to actually use the allowance given, it just sits there! That’s what transferFrom is for.
 
 ### `transferFrom`
+
+Newest code:
+
+```solidity
+
+contract ERC20 {
+    string public name;
+    string public symbol;
+
+    mapping(address => uint256) public balanceOf;
+    address public owner;
+    uint8 public decimals;
+    uint256 public totalSupply;
+
+    // owner -> spender -> allowance
+        // this enables an owner to give allowance to multiple addresses
+    mapping(address => mapping(address => uint256)) public allowance;
+
+    constructor(string memory _name, string memory _symbol) {
+        name = _name;
+        symbol = _symbol;
+        decimals = 18;
+
+        owner = msg.sender;
+    }
+
+    function mint(address to, uint256 amount) public {
+        require(msg.sender == owner, "only owner can create tokens");
+        totalSupply += amount;
+        balanceOf[owner] += amount;
+    }
+
+    function transfer(address to, uint256 amount) public {
+        require(balanceOf[msg.sender] >= amount, "you aint rich enough");
+        require(to != address(0), "cannot send to address(0)");
+        balanceOf[msg.sender] -= amount;
+        balanceOf[to] += amount;
+    }
+
+    function approve(address spender, uint256 amount) public {
+        allowance[msg.sender][spender] = amount;
+    }
+
+    // just added
+    function transferFrom(address from, address to, uint256 amount) public {
+        require(balanceOf[from] >= amount, "not enough money");
+
+        if (msg.sender != from) {
+            require(allowance[from][msg.sender] >= amount, "not enough allowance");
+
+            allowance[from][msg.sender] -= amount;
+        }
+
+        balanceOf[from] -= amount;
+        balanceOf[to] += amount;
+    }
+}
+```
+
+First, it is possible for the owner of the coin to call `transferFrom`. In that case, allowance is meaningless, so we don’t bother checking the allowance mapping, and update the balances accordingly.
+
+Otherwise, we check to see the spender has been given enough allowance, then subtract the amount they are spending. If we didn't subtract their spending, we would have unlimited spending power.
+
+There is one more cleanup to do. If we read the original specification for EIP 20 it says that `approve`, `transfer`, and `transferFrom` must return true after they succeed. So let's add that.
+
+Newest code:
+
+```solidity
+
+contract ERC20 {
+    string public name;
+    string public symbol;
+
+    mapping(address => uint256) public balanceOf;
+    address public owner;
+    uint8 public decimals;
+
+    uint256 public totalSupply;
+
+    // owner -> spender -> allowance
+    // this enables an owner to give allowance to multiple addresses
+    mapping(address => mapping(address => uint256))
+        public allowance;
+
+    constructor(
+        string memory _name,
+        string memory _symbol
+    ) {
+        name = _name;
+        symbol = _symbol;
+        decimals = 18;
+
+        owner = msg.sender;
+    }
+
+    function mint(
+        address to,
+        uint256 amount
+    )
+        public {
+            require(msg.sender == owner,
+                "only owner can create tokens");
+            totalSupply += amount;
+            balanceOf[owner] += amount;
+    }
+
+    function transfer(
+        address to,
+        uint256 amount
+    )
+        public
+        returns (bool) {
+            require(balanceOf[msg.sender] >= amount,
+                "you aint rich enough");
+            require(to != address(0),
+                "cannot send to address(0)");
+            balanceOf[msg.sender] -= amount;
+            balanceOf[to] += amount;
+
+            return true;
+    }
+
+    function approve(
+        address spender,
+        uint256 amount
+    )
+        public
+        returns (bool) {
+            allowance[msg.sender][spender] = amount;
+
+            return true;
+    }
+
+    function transferFrom(
+        address from,
+        address to,
+        uint256 amount
+    )
+        public
+        returns (bool) {
+            require(balanceOf[from] >= amount,
+                "not enough money");
+            require(to != address(0),
+                "cannot send to address(0)");
+
+            if (msg.sender != from) {
+                require(allowance[from][msg.sender] >= amount,
+                    "not enough allowance");
+
+                allowance[from][msg.sender] -= amount;
+            }
+
+            balanceOf[from] -= amount;
+            balanceOf[to] += amount;
+
+            return true;
+    }
+}
+```
+
+At the risk of throwing too much information at you, there is a cleanup to this code we can do. Note that transferFrom and transfer have duplicate code in them. What can we do about that? We could factor out the balance update code into a separate function, but we need to make sure that function isn’t public or someone can steal coins!
+
+```
+
+contract ERC20 {
+    string public name;
+    string public symbol;
+
+    mapping(address => uint256) public balanceOf;
+    address public owner;
+    uint8 public decimals;
+
+    uint256 public totalSupply;
+
+    // owner -> spender -> allowance
+    // this enables an owner to give allowance to multiple addresses
+    mapping(address => mapping(address => uint256))
+        public allowance;
+
+    constructor(
+        string memory _name,
+        string memory _symbol
+    ) {
+        name = _name;
+        symbol = _symbol;
+        decimals = 18;
+
+        owner = msg.sender;
+    }
+
+    function mint(
+        address to,
+        uint256 amount
+    )
+        public {
+            require(msg.sender == owner,
+                "only owner can create tokens");
+            totalSupply += amount;
+            balanceOf[owner] += amount;
+    }
+
+    function transfer(
+        address to,
+        uint256 amount
+    )
+        public
+        returns (bool) {
+            return helperTransfer(msg.sender, to, amount);
+    }
+
+    function approve(
+        address spender,
+        uint256 amount
+    )
+        public
+        returns (bool) {
+            allowance[msg.sender][spender] = amount;
+
+            return true;
+    }
+
+    function transferFrom(
+        address from,
+        address to,
+        uint256 amount
+    )
+        public
+        returns (bool) {
+            if (msg.sender != from) {
+                require(allowance[from][msg.sender] >= amount,
+                    "not enough allowance");
+
+                allowance[from][msg.sender] -= amount;
+            }
+
+            return helperTransfer(from, to, amount);
+    }
+
+    function helperTransfer(
+        address from,
+        address to,
+        uint256 amount
+    )
+        internal
+        returns (bool) {
+            require(balanceOf[from] >= amount,
+                "not enough money");
+            require(to != address(0),
+                "cannot send to address(0)");
+            balanceOf[from] -= amount;
+            balanceOf[to] += amount;
+
+            return true;
+    }
+}
+```
+
+[Original Article](https://www.rareskills.io/learn-solidity/erc20-tuotrial)

@@ -110,7 +110,6 @@ As a sidenote:
 So with these additions, our token should look like this now:
 
 ```solidity
-
 contract ERC20 {
     string public name;
     string public symbol;
@@ -481,3 +480,9 @@ contract ERC20 {
 ```
 
 [Original Article](https://www.rareskills.io/learn-solidity/erc20-tuotrial)
+
+### Further reading
+
+- [EIPS Ethereum](https://eips.ethereum.org/)
+- [EIPS ERC-20](https://eips.ethereum.org/EIPS/eip-20)
+- [EIPS vs ERC](https://www.coinbase.com/learn/your-crypto/what-is-an-ethereum-improvement-proposal-eip)

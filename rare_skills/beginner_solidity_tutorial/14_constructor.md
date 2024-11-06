@@ -43,7 +43,7 @@ contract Constructor02 {
 
 So the difference is, in our previous lesson the 'banker' was hardcoded. In our 1st example here, the banker is whoever deploys the contract. In our 2nd example, whoever deploys the contract can set who the banker will be in the arguments.
 
-You’ll see this pattern `variable = _variable` a lot in constructors. Solidity doesn't require you to do that, but it's a convention.
+You'll see this pattern `variable = _variable` a lot in constructors. Solidity doesn't require you to do that, but it's a convention.
 
 For reasons we cannot get into right now, `calldata` cannot be used in constructor arguments. I know, it seems like a very weird and random restriction, but it will make sense later, after you understand how Ethereum works under the hood.
 

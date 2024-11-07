@@ -31,3 +31,11 @@ Then:
 ```shell
 npm install --save-dev @openzeppelin/contracts
 ```
+
+## 07-NOV-2024 Thursday
+
+[Lesson 12 - Github](https://github.com/Encode-Club-Solidity-Bootcamp/Lesson-12)
+
+- Let's create a new Hardhat project, 'TokenizedVotes'.
+- Matheus copied several files from a previous project for easier setup
+- We will learn about OZ extension `ERC20Votes.sol`.

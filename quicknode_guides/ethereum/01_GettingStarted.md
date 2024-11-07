@@ -65,4 +65,38 @@ Given an old valid state (S) and a new set of valid transactions (T), the Ethere
 
 ## What are Ethereum accounts?
 
+There are 2 types of accounts in Ethereum:
+
+- externally owned accounts (EOA)
+- smart contract accounts
+
+Both account types can send and receive Ether (ETH) as well as interact with smart accounts deployed on the blockchain.
+
+### Externally Owned Accounts (EOA)
+
+An EOA is an account controlled by a cryptographic keypair. A key pair consists of a public key (a.k.a public address) and a private key.
+
+It doesn't cost anything to generate an externally owned account (e.g., keypair), however, you will need to pay for transaction costs when writing (i.e., changing the state) on the Ethereum blockchain. EOAs do not store data or state; they simply can authorize state changes where they have authority.
+
+**Assets are not directly held within an externally owned account (EOA); instead, they are associated with it through a mapping**.
+
+### Smart Contract Accounts (SCA)
+
+SCAs cost transaction fees to be created and do not contain a private key pair. But, they contain EVM code and storage. To summarize, smart contract accounts have the potential to offer more complex features, for example:
+
+- Multi-signature transactions to require signatures from multiple parties before executing transactions
+- Scheduled payments to automate recurring payments or subscriptions
+- Set spending limits to control fund outflow
+- Authorization controls and customized permissions to allow different wallet access/operations
+- Conditional transactions based on specific states, such as price thresholds or time-based triggers
+- Deployment of smart contracts, enabling modular structures for different types of operations
+
+## QuickNode and Blockchain
+
+In order for Ethereum to continue functioning, humans (for now 😉) need to run nodes (the hardware and software). There are different types of Ethereum client software like Geth or Nethermind. These are open-source and anyone can run them with the right hardware. However, many users don't have the hardware, experience or time to manage Ethereum nodes. This is where QuickNode plays a role.
+
+QuickNode runs blockchain nodes for 25+ different blockchains
+
 ## Connecting to blockchains
+
+This part is basically taken from the [Etherem docs](https://ethereum.org/en/developers/docs/programming-languages/).

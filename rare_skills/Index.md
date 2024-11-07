@@ -74,6 +74,22 @@
   - Routers
   - Building a Uniswap V2 Clone
 
+## 📚 RareSkills Books
+
+- [Zero Knowledge Proofs Book](https://www.rareskills.io/zk-book)
+- [Uniswap V2 Book](https://www.rareskills.io/uniswap-v2-book)
+- [Compound V3 Book](https://www.rareskills.io/compound-v3-book)
+- [Proxy Patterns and Delegatecall](https://www.rareskills.io/proxy-patterns)
+- [Solidity Gas Optimization: 80+ Tips](https://www.rareskills.io/post/gas-optimization)
+- [Tornado Cash Book](https://www.rareskills.io/post/how-does-tornado-cash-work)
+- [60 Days of Solana](https://www.rareskills.io/solana-tutorial)
+- [Smart Contract Security](https://www.rareskills.io/post/smart-contract-security)
+- [Huff Puzzles (Github)](https://github.com/RareSkills/huff-puzzles)
+- [Solidity Riddles (Github)](https://github.com/RareSkills/solidity-riddles)
+- [Solidity Interview Questions](https://www.rareskills.io/post/solidity-interview-questions)
+
 ## 📁 Additional Resources
+
+- [RareSkills Blog](https://www.rareskills.io/blog)
 
 [Course Link](https://www.rareskills.io/learn-solidity)

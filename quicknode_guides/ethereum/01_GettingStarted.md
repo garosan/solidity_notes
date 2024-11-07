@@ -100,3 +100,41 @@ QuickNode runs blockchain nodes for 25+ different blockchains
 ## Connecting to blockchains
 
 This part is basically taken from the [Etherem docs](https://ethereum.org/en/developers/docs/programming-languages/).
+
+## Connecting to a testnet
+
+Sepolia is a Proof-of-Stake (PoS) testnet named after a neighborhood in Athens.
+
+Sepolia was initially a private test network but was later opened to the public during the Shapella upgrade in March 2023.
+
+Sepolia has a permissioned validator set that is controlled by the core foundation and testing teams.
+
+### Creating an Ethereum Sepolia Endpoint with QuickNode
+
+Create an account > Create endpoint > Select Ethereum > Select Sepolia > Select free plan.
+
+With your QuickNode endpoint created, let's make a request to get some data from the testnet blockchain.
+
+Navigate to the QuickNode Documentation, and select the eth_getBlockByHash RPC method.
+
+Run this with cURL:
+
+```bash
+curl --location <RPC_PROVIDER_URL> \
+--header 'Content-Type: application/json' \
+--data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}'
+```
+
+Got this back:
+
+`{"jsonrpc":"2.0","id":1,"result":"0x6b3984"}`
+
+Now let's try calling `eth_getBlockByNumber`:
+
+```bash
+curl --location <RPC_PROVIDER_URL> \
+--header 'Content-Type: application/json' \
+--data '{"method":"eth_getBlockByNumber","params":["latest", false],"id":1,"jsonrpc":"2.0"}'
+```
+
+And now we get a lot of data back.

@@ -19,10 +19,10 @@
   14. [Constructor](./beginner_solidity_tutorial/14_constructor.md)
   15. [Require](./beginner_solidity_tutorial/15_require.md)
   16. [ERC-20 Tokens](./beginner_solidity_tutorial/16_erc20_tokens.md)
-  17. Tuples
+  17. [Tuples](./beginner_solidity_tutorial/17_tuples.md)
   18. Application binary interface (ABI encoding)
-  19. Contracts calling other contracts
-  20. Token Exchange Mini Project
+  19. [Contracts calling other contracts](./beginner_solidity_tutorial/19_cross_contract_calling.md)
+  20. [Token Exchange Mini Project](./beginner_solidity_tutorial/20_token_exchange_miniproject.md)
   21. Payable functions
   22. Receive
   23. Block.timestamp and block.number

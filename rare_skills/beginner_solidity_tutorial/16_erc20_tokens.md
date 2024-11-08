@@ -290,7 +290,6 @@ There is one more cleanup to do. If we read the original specification for EIP 2
 Newest code:
 
 ```solidity
-
 contract ERC20 {
     string public name;
     string public symbol;

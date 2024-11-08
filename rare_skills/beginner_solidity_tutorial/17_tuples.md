@@ -2,21 +2,20 @@
 
 We will introduce the tuple data type, because it is a prerequisite for upcoming sections.
 
-The tuple is an array of fixed size, but the types inside of it can be a mixture.
+In Solidity, tuples are used to group multiple values together. They allow you to pack variables of different types into a single entity, which can be especially useful when returning multiple values from a function or when assigning values to multiple variables at once.
 
-Here’s an example of a function that returns a tuple:
+Here is an example of a tuple declaration:
+
+`(uint256 x, uint256 y) = (10, 20);`
+
+This statement assigns `10` to `x` and `20` to `y` using a tuple assignment.
+
+And here's an example of a function that returns a tuple:
 
 ```solidity
-contract ExampleContract {
-
-    function getTopLeaderboardScore()
-        public
-        pure
-        returns (address, uint256) {
-            return (
-                0xd8da6bf26964af9d7eed9e03e53415d37aa96045,
-                100
-            );
+contract Tuples01 {
+    function getTopLeaderboardScore() public pure returns (address, uint256) {
+        return (0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045, 100);
     }
 }
 ```
@@ -26,30 +25,17 @@ contract ExampleContract {
 Tuples can also be 'unpacked' to get the variables inside, example:
 
 ```solidity
-contract ExampleContract {
-
-    function getTopLeaderboardScore()
-        public
-        pure
-        returns (address, uint256) {
-            return (
-                0xd8da6bf26964af9d7eed9e03e53415d37aa96045,
-                100
-            );
+contract Tuples02 {
+    function getTopLeaderboardScore() public pure returns (address, uint256) {
+        return (0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045, 10000);
     }
 
-    function highestScoreIsOver9000()
-        public
-        pure
-        returns (bool) {
-            (address leader, uint256 score) =
-                getTopLeaderboardScore();
-
-            if (score > 9000) {
-                return true;
-            }
-
-            return false;
+    function highestScoreIsOver9000() public pure returns (bool) {
+        (address leader, uint256 score) = getTopLeaderboardScore();
+        if(score > 9000) {
+            return true;
+        }
+        return false;
     }
 }
 ```
@@ -61,5 +47,35 @@ This is the exact line that achieves it:
 ```solidity
 (address leader, uint256 score) = getTopLeaderboardScore();
 ```
+
+## Ignoring tuple values
+
+If you paste the above code in Solidity, you will notice this warning for the `leader` variable:
+
+`Warning: Unused local variable.`
+
+If you want to get rid of this warning and generally omit a value from a tuple, you can leave an empty space:
+
+```solidity
+contract Tuples02 {
+    function getTopLeaderboardScore() public pure returns (address, uint256) {
+        return (0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045, 10000);
+    }
+
+    function highestScoreIsOver9000() public pure returns (bool) {
+        // Leave an empty space, followed by a comma
+        (, uint256 score) = getTopLeaderboardScore();
+        if(score > 9000) {
+            return true;
+        }
+        return false;
+    }
+}
+```
+
+## Why should we use tuples?
+
+- Efficiency: Tuples let you return multiple values from a function without creating a struct (a data structure that we will see a bit later), saving storage costs.
+- Readability: They make it easier to work with multiple return values, especially in short-lived calculations within a function.
 
 [Original Article](https://www.rareskills.io/learn-solidity/tuples)

@@ -25,12 +25,12 @@
   20. [Token Exchange Mini Project](./beginner_solidity_tutorial/20_token_exchange_miniproject.md)
   21. [Payable functions](./beginner_solidity_tutorial/21_payable_functions.md)
   22. [Receive](./beginner_solidity_tutorial/22_receive.md)
-  23. Block.timestamp and block.number
-  24. Emitting Events
-  25. Inheritance
-  26. Modifiers
-  27. Immutable variables
-  28. Constants
+  23. [Block.timestamp and block.number](./beginner_solidity_tutorial/23_block_timestamp_block_number.md)
+  24. [Emitting Events](./beginner_solidity_tutorial/24_emitting_events.md)
+  25. [Inheritance](./beginner_solidity_tutorial/25_inheritance.md)
+  26. [Modifiers](./beginner_solidity_tutorial/26_modifiers.md)
+  27. [Immutable variables](./beginner_solidity_tutorial/27_immutable_variables.md)
+  28. [Constants]()
   29. Deploying an ERC-721 to OpenSea
   30. Launch and verify and NFT with Foundry
   31. Units of Ethereum: wei, gwei, and ether

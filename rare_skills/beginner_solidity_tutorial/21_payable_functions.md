@@ -66,3 +66,41 @@ contract Payable04 {
     }
 }
 ```
+
+## Send Ether
+
+It is pretty straight forward to send Ether when you call a function from the Remix IDE, but what if another contract wants to send Ether?
+
+This is how you would do it:
+
+```solidity
+contract ReceiveEther {
+    function takeMoney() public payable {
+
+    }
+
+    function myBalance() public view returns (uint256) {
+        return address(this).balance;
+    }
+}
+
+contract SendMoney {
+    constructor() payable {
+
+    }
+
+    function sendMoney(address receiveEtherContract) public payable {
+        uint256 amount = myBalance();
+        (bool ok, ) = receiveEtherContract.call{value: amount}(
+            abi.encodeWithSignature("takeMoney()")
+        );
+        require(ok, "transfer failed");
+    }
+
+    function myBalance() public view returns (uint256) {
+        return address(this).balance;
+    }
+}
+```
+
+Since obviously changing the balance of a smart contract is a _state change_, `payable` functions cannot be view or pure.

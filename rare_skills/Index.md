@@ -24,7 +24,7 @@
   19. [Contracts calling other contracts](./beginner_solidity_tutorial/19_cross_contract_calling.md)
   20. [Token Exchange Mini Project](./beginner_solidity_tutorial/20_token_exchange_miniproject.md)
   21. [Payable functions](./beginner_solidity_tutorial/21_payable_functions.md)
-  22. Receive
+  22. [Receive](./beginner_solidity_tutorial/22_receive.md)
   23. Block.timestamp and block.number
   24. Emitting Events
   25. Inheritance

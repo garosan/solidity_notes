@@ -39,3 +39,11 @@ npm install --save-dev @openzeppelin/contracts
 - Let's create a new Hardhat project, 'TokenizedVotes'.
 - Matheus copied several files from a previous project for easier setup
 - We will learn about OZ extension `ERC20Votes.sol`.
+
+## Week 03 - Homework
+
+- Complete the contracts together
+- Develop and run scripts for “TokenizedBallot.sol” within your group to give voting tokens, delegating voting power, casting votes, checking vote power and querying results
+- Write a report with each function execution and the transaction hash, if successful, or the revert reason, if failed
+- Submit your weekend project by filling the form provided in Discord
+- Share your code in a github repo in the submission form

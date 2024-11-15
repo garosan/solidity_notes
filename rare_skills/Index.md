@@ -91,5 +91,4 @@
 ## 📁 Additional Resources
 
 - [RareSkills Blog](https://www.rareskills.io/blog)
-
-[Course Link](https://www.rareskills.io/learn-solidity)
+- [Course Link](https://www.rareskills.io/learn-solidity)

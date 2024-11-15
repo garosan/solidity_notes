@@ -1,0 +1,57 @@
+# Solidity by Example Notes
+
+## 📄 Table of Contents
+
+- Hello World
+- First App
+- Primitive Data Types
+- Variables
+- Constants
+- Immutable
+- Reading and Writing to a State Variable
+- Ether and Wei
+- Gas and Gas Price
+- If/Else
+- For and While Loop
+- Mapping
+- Array
+- Enum
+- User Defined Value Types
+- Structs
+- Data Locations - Storage, Memory and Calldata
+- Transient Storage
+- Function
+- View and Pure Functions
+- Error
+- Function Modifier
+- Events
+- Events Advanced
+- Constructor
+- Inheritance
+- Shadowing Inherited State Variables
+- Calling Parent Contracts
+- Visibility
+- Interface
+- Payable
+- Sending Ether - Transfer, Send and Call
+- Fallback
+- Call
+- Delegatecall
+- Function Selector
+- Calling Other Contract
+- Creating Contracts from a Contract
+- Try / Catch
+- Import
+- Library
+- ABI Encode
+- ABI Decode
+- Hashing with Keccak256
+- Verifying Signature
+- Gas Optimizations
+- Bitwise Operators
+- Unchecked Math
+- Assembly Variable
+- Assembly Conditional Statements
+- Assembly Loop
+- Assembly Error
+- Assembly Math

@@ -208,3 +208,127 @@ Key differences between `constant` and `immutable`:
 👉 Takeaways:
 
 - Learn the difference between `constant` and `immutable`.
+
+## ✔️ 07. Reading and Writing to a State Variable
+
+To write or update a state variable you need to send a transaction.
+
+On the other hand, you can read state variables, for free, without any transaction fee.
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.26;
+
+contract SimpleStorage {
+    // State variable to store a number
+    uint256 public num;
+
+    // You need to send a transaction to write to a state variable.
+    function set(uint256 _num) public {
+        num = _num;
+    }
+
+    // You can read from a state variable without sending a transaction.
+    function get() public view returns (uint256) {
+        return num;
+    }
+}
+```
+
+👉 Takeaways:
+
+- Take a look at the differences between the _setter_ and the _getter_ functions.
+
+## ✔️ 08. Ether and Wei
+
+Similar to how one dollar is equal to 100 cent, one `ether` is equal to 10<sup>18</sup> `wei`.
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.26;
+
+contract EtherUnits {
+    uint256 public oneWei = 1 wei;
+    // 1 wei is equal to 1
+    bool public isOneWei = (oneWei == 1);
+
+    uint256 public oneGwei = 1 gwei;
+    // 1 gwei is equal to 10^9 wei
+    bool public isOneGwei = (oneGwei == 1e9);
+
+    uint256 public oneEther = 1 ether;
+    // 1 ether is equal to 10^18 wei
+    bool public isOneEther = (oneEther == 1e18);
+}
+```
+
+👉 Takeaways:
+
+- Notice how to write numbers with exponential notation.
+- Notice the keywords `wei`, `gwei` and `ether`.
+
+## ✔️ 09. Gas
+
+How do you calculate how much `ether` do you need to pay for a transaction?
+
+You pay `gas spent * gas price` amount of ether, where:
+
+- `gas` is a unit of computation
+- `gas spent` is the total amount of gas used in a transaction
+- `gas price` is how much ether you are willing to pay per gas
+
+Also:
+
+- Transactions with higher gas price have higher priority to be included in a block.
+- Unspent gas will be refunded.
+
+#### Gas Limit
+
+There are 2 upper bounds to the amount of gas you can spend:
+
+- `gas limit` (max amount of gas you're willing to use for your transaction, set by you)
+- `block gas limit` (max amount of gas allowed in a block, set by the network)
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.26;
+
+contract Gas {
+    uint256 public i = 0;
+
+    // Using up all of the gas that you send causes your transaction to fail.
+    // State changes are undone.
+    // Gas spent are not refunded.
+    function forever() public {
+        // Here we run a loop until all of the gas are spent
+        // and the transaction fails
+        while (true) {
+            i += 1;
+        }
+    }
+}
+```
+
+In Remix we get this error: `The transaction ran out of gas. Please increase the Gas Limit.`
+
+### Read more
+
+- [On Block Sizes, Gas Limits and Scalability](https://ethresear.ch/t/on-block-sizes-gas-limits-and-scalability/18444)
+- [Ethereum Docs - Gas](https://ethereum.org/en/developers/docs/gas/)
+- [Why is there block gas limit?](https://ethereum.stackexchange.com/questions/50283/why-is-there-block-gas-limit)
+
+## ✔️ 10. If / Else
+
+Fairly simple topic, covered in my RareSkill notes.
+
+## ✔️ 11. For and While Loop
+
+Fairly simple topic, covered in my RareSkill notes.
+
+"Don't write loops that are unbounded as this can hit the gas limit, causing your transaction to fail.
+
+For the reason above, while and do while loops are rarely used."
+
+## ✔️ 12. Mapping
+
+Also covered in my RareSkill notes.

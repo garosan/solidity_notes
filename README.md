@@ -7,7 +7,7 @@ These are my personal notes from documentation, courses, bootcamps, etc.
 - [RareSkills Notes](./rare_skills/Index.md)
 - [Solidity By Example Notes](./solidity_by_example/Index.md)
 - [Encode EVM Bootcamp](#)
-- [Arbitrum](#)
+- [Arbitrum](./arbitrum/Index.md)
 
 ## ⛲ Sources
 

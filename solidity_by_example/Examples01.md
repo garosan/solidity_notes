@@ -172,3 +172,39 @@ contract Constants {
 👉 Takeaways:
 
 - The `constant` keyword.
+- Added my own example in Remix with 17 variables:
+  - When made _constant_ gas was 328497.
+  - When not made _constant_ gas was 770712. 🫡
+
+## ✔️ 06. Immutable
+
+Immutable variables are like constants. Values of immutable variables can be set inside the constructor but cannot be modified afterwards.
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.26;
+
+contract Immutable {
+    // coding convention to uppercase constant variables
+    address public immutable MY_ADDRESS;
+    uint256 public immutable MY_UINT;
+
+    constructor(uint256 _myUint) {
+        MY_ADDRESS = msg.sender;
+        MY_UINT = _myUint;
+    }
+}
+```
+
+Key differences between `constant` and `immutable`:
+
+![Key differences](./06_immutable.png "constant vs immutable")
+
+❓ When would you use `constant` and when `immutable`?
+
+- Use `constant` when the value is known at compile time and will never change and you want to minimize storage usage and save gas.
+- Use `immutable` when value is only known at runtime and depends on deployment-time parameters.
+
+👉 Takeaways:
+
+- Learn the difference between `constant` and `immutable`.

@@ -133,3 +133,79 @@ rm ./test/*
 
 - [Video de la sesión](https://www.youtube.com/watch?v=1OSiN2I1lfQ)
 - [Notas Github](https://github.com/Encode-Club-Solidity-Bootcamp/Lesson-07)
+
+Take a look at this Ballot contract from the Solidity docs:
+
+https://docs.soliditylang.org/en/latest/solidity-by-example.html
+
+We should create a new folder for our project following this process again:
+
+```shell
+mkdir project2
+cd project2
+npm init -y
+npm install --save-dev hardhat
+
+
+npx hardhat init
+    "Create a TypeScript project (with Viem)"
+# Pick all default options
+code .
+```
+
+Now copy the .env with this info:
+
+```
+MNEMONIC="here is where your extracted twelve words mnemonic phrase should be put"
+PRIVATE_KEY="<your wallet private key should go here>"
+POKT_API_KEY="********************************"
+INFURA_API_KEY="********************************"
+INFURA_API_SECRET="********************************"
+ALCHEMY_API_KEY="********************************"
+ETHERSCAN_API_KEY="********************************"
+```
+
+And copy the `hardhat.config.ts` file:
+
+```typescript
+import { task, type HardhatUserConfig } from "hardhat/config";
+import "@nomicfoundation/hardhat-toolbox-viem";
+
+const config: HardhatUserConfig = {
+  solidity: "0.8.27",
+};
+
+task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
+  const accounts = await hre.viem.getWalletClients();
+  for (const account of accounts) {
+    console.log(account.account.address);
+  }
+});
+
+export default config;
+```
+
+Now check that these 3 commands are working:
+
+```shell
+npx hardhat compile
+npx hardhat test
+npx hardhat accounts
+```
+
+To start from scratch we are going to
+
+```shell
+rm ./contracts/*
+rm -rf ignition
+rm ./test/*
+mkdir scripts/
+```
+
+
+
+Nos quedamos aquí:
+
+https://youtu.be/1OSiN2I1lfQ?t=3947
+
+Lo último que hemos estado viendo es cómo agregar pruebas usando loadFixture y todos los hoops que tenemos qué brincar para obtener los valores exactos que requerimos para que nuestras pruebas funcionen correctamente.

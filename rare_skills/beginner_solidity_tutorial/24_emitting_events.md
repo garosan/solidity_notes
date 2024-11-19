@@ -4,7 +4,7 @@ Technically, our "ERC20" token is not fully ERC20 compliant. It's missing an imp
 
 General rule of thumb: **If a function causes a state change, it should be logged**.
 
-Why log things? Isn’t it the case that the blockchain already immutably stores every transaction?
+Why log things? Isn't it the case that the blockchain already immutably stores every transaction?
 
 That's true. But logging certain kinds of events helps us find events (transactions) that we are looking for much faster and in a more organized fashion.
 
@@ -22,7 +22,7 @@ contract Events01 {
 }
 ```
 
-An event can have up to 3 indexed types, but there isn’t a strict limit on the number of unindexed parameters.
+An event can have up to 3 indexed types, but there isn't a strict limit on the number of unindexed parameters.
 
 By the way, argument names after the datatype is optional. We could have written the event above as
 

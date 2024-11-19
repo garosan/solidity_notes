@@ -26,7 +26,7 @@ contract Constructor01 {
 }
 ```
 
-Note that we don’t specify `public` because **constructors can't be modified with things like pure, view, public**.
+Note that we don't specify `public` because **constructors can't be modified with things like pure, view, public**.
 
 If you wanted the banker to be configured by the person deploying the contract, then you could use it as a function argument.
 

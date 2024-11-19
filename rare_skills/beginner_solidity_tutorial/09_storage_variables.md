@@ -26,7 +26,7 @@ contract StorageVariables01 {
 
 Note that `getX()` has the modifier `view` instead of `pure`. That's because it views the blockchain state, I.e. what is stored in the variable `x`. If you change `view` to `pure` in this example, the code will not compile. You can also think of `view` as read-only.
 
-Second, note that `setX()` does not have a `view` or a `pure` modifier. That’s because it is a state changing function. Functions that change storage variables, or make some other lasting change to the blockchain cannot have the `view` or `pure` modifier, this is because they are not read only and thus cannot be labelled as `view`, and certainly not `pure`. (This function is implicitly by default `non-payable`).
+Second, note that `setX()` does not have a `view` or a `pure` modifier. That's because it is a state changing function. Functions that change storage variables, or make some other lasting change to the blockchain cannot have the `view` or `pure` modifier, this is because they are not read only and thus cannot be labelled as `view`, and certainly not `pure`. (This function is implicitly by default `non-payable`).
 
 Note that the variable `x` itself has the modifier `internal`. This means other smart contracts cannot see the value.
 
@@ -119,7 +119,7 @@ A function can alter the contract's state, read it, or neither.
 
 Types of State Mutability
 
-- `pure` - these do not read or modify the blockchain state. They consume the least amount of gas when called externally, as they don’t interact with the blockchain state.
+- `pure` - these do not read or modify the blockchain state. They consume the least amount of gas when called externally, as they don't interact with the blockchain state.
 - `view` - can read data but can't modify the blockchain state. Calling them directly is gasless.
 - `payable` -
 - `non payable` - default mutability. They can read and modify state variables, allowing for full interaction with the contract, and thus pay gas.

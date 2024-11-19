@@ -82,11 +82,11 @@ contract ExampleContract {
 }
 ```
 
-Solidity cannot delete from the middle of the list and preserve the array’s original order.
+Solidity cannot delete from the middle of the list and preserve the array's original order.
 
 ### Strings
 
-Strings behave similarly to arrays, except when they are public they return the entire string, because strings cannot be indexed (confusing, isn’t it?). There is no pop or length operation for strings.
+Strings behave similarly to arrays, except when they are public they return the entire string, because strings cannot be indexed (confusing, isn't it?). There is no pop or length operation for strings.
 
 ```solidity
 contract ExampleContract {

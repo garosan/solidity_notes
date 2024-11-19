@@ -1,6 +1,6 @@
 # ERC20 Tokens
 
-ERC20 tokens typically have a name and a symbol. For example, ApeCoin has the name "ApeCoin" but the symbol "APE". The name of the token generally doesn’t change, so we'll set it in the constructor and not provide any functions to change it later. We'll make these variables public so that anyone can check the name and symbol of the contract.
+ERC20 tokens typically have a name and a symbol. For example, ApeCoin has the name "ApeCoin" but the symbol "APE". The name of the token generally doesn't change, so we'll set it in the constructor and not provide any functions to change it later. We'll make these variables public so that anyone can check the name and symbol of the contract.
 
 We also need to store everyone's balances.
 
@@ -161,7 +161,7 @@ What is this doing? Well, nobody "owns" the zero address, so tokens sent there a
 
 Allowance enables an address to spend someone else's tokens, up to a limit that they specify.
 
-Why would you allow someone to spend tokens for you? This is a very long story, but to summarize, think about how you would “know” someone transferred you ERC20 tokens. All that happens is a function gets executed and a mapping changed values. You didn’t “receive” the tokens, they just became associated with your address.
+Why would you allow someone to spend tokens for you? This is a very long story, but to summarize, think about how you would “know” someone transferred you ERC20 tokens. All that happens is a function gets executed and a mapping changed values. You didn't “receive” the tokens, they just became associated with your address.
 
 The important thing here is that the established pattern for smart contracts to be recipients of transfers is to allow the smart contract to have a certain allowance, then tell that smart contract to withdraw the balance from your account.
 
@@ -219,7 +219,7 @@ In the line `allowance[msg.sender][spender] = amount;`, spender refers to the ad
 
 Therefore, msg.sender is the owner of the tokens and spender is someone who has been approved by the owner to spend a certain amount of tokens on their behalf.
 
-Ah, but we don’t have a way to actually use the allowance given, it just sits there! That’s what transferFrom is for.
+Ah, but we don't have a way to actually use the allowance given, it just sits there! That's what transferFrom is for.
 
 ### `transferFrom`
 
@@ -281,7 +281,7 @@ contract ERC20 {
 }
 ```
 
-First, it is possible for the owner of the coin to call `transferFrom`. In that case, allowance is meaningless, so we don’t bother checking the allowance mapping, and update the balances accordingly.
+First, it is possible for the owner of the coin to call `transferFrom`. In that case, allowance is meaningless, so we don't bother checking the allowance mapping, and update the balances accordingly.
 
 Otherwise, we check to see the spender has been given enough allowance, then subtract the amount they are spending. If we didn't subtract their spending, we would have unlimited spending power.
 
@@ -381,7 +381,7 @@ contract ERC20 {
 }
 ```
 
-At the risk of throwing too much information at you, there is a cleanup to this code we can do. Note that transferFrom and transfer have duplicate code in them. What can we do about that? We could factor out the balance update code into a separate function, but we need to make sure that function isn’t public or someone can steal coins!
+At the risk of throwing too much information at you, there is a cleanup to this code we can do. Note that transferFrom and transfer have duplicate code in them. What can we do about that? We could factor out the balance update code into a separate function, but we need to make sure that function isn't public or someone can steal coins!
 
 ```
 

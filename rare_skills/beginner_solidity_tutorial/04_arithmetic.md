@@ -133,9 +133,9 @@ function subtract(uint256 x, uint256 y)
 }
 ```
 
-What happens if x is 2 and y is 5? You won’t get negative 3. Actually, what happens is the execution will halt with a revert.
+What happens if x is 2 and y is 5? You won't get negative 3. Actually, what happens is the execution will halt with a revert.
 
-Solidity doesn’t throw exceptions, but you can think of a revert as the equivalent of an uncaught exception.
+Solidity doesn't throw exceptions, but you can think of a revert as the equivalent of an uncaught exception.
 
 It used to be the case Solidity would allow overflows and underflows, but this led to enough smart contracts breaking or getting hacked that the language built overflow and underflow protection into the language. This feature was added after Solidity version 0.8.0.
 

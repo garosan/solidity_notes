@@ -30,7 +30,7 @@ In transaction execution, the EVM executes tasks (e.g., function calls to a smar
 
 - A smart contract developer writes smart contract code in Solidity or another language
 - The developer compiles the files and the result is bytecode
-- The bytecode contains all the instructions the EVM needs to run the contract, and it’s what gets deployed to the blockchain.
+- The bytecode contains all the instructions the EVM needs to run the contract, and it's what gets deployed to the blockchain.
 - Within the bytecode there are **opcodes** that the EVM recognizes and executes. Opcodes are essentially the "commands" the EVM reads from the bytecode to know what to do.
 
 When the EVM executes tasks, it is limited to the amount of gas provided by the transaction and the overall limitations of the EVM.

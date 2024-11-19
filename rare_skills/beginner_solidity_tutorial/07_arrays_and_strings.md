@@ -50,7 +50,7 @@ Memory in Solidity is like the heap in C, C++, or Rust. Dynamic arrays can have 
 
 When in doubt: the function arguments for arrays and strings should be calldata and the function arguments for the return type should be memory.
 
-There are some exceptions to using `calldata` in a function argument, but the return type for an array should always be `memory`, never `calldata`, or the code won’t compile. To avoid bombarding you with information, we will talk about the exceptions to calldata later.
+There are some exceptions to using `calldata` in a function argument, but the return type for an array should always be `memory`, never `calldata`, or the code won't compile. To avoid bombarding you with information, we will talk about the exceptions to calldata later.
 
 ## More about `calldata` and `memory`
 
@@ -156,7 +156,7 @@ There is a reason support for concatenation was added so late, smart contracts u
 
 ### Strings cannot be indexed
 
-In languages like JavaScript or Python, you can index a string like you would an array and get a character back. Solidity cannot do this. The following code won’t compile:
+In languages like JavaScript or Python, you can index a string like you would an array and get a character back. Solidity cannot do this. The following code won't compile:
 
 ```solidity
 pragma solidity ^0.8.12;

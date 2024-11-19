@@ -36,7 +36,7 @@ Notice we introduced these 2 keywords: `virtual` and `override`.
 
 From the [documentation](https://docs.soliditylang.org/en/v0.8.28/cheatsheet.html):
 
-- `virtual` is for functions and modifiers: Allows the function’s or modifier’s behavior to be changed in derived contracts.
+- `virtual` is for functions and modifiers: Allows the function's or modifier's behavior to be changed in derived contracts.
 - `override`: States that this function, modifier or public state variable changes the behavior of a function or modifier in a base contract.
 
 Also, when a function overrides, **it must match exactly, both in name, arguments, and return type**.
@@ -55,7 +55,7 @@ If the two parents had a function with the same name, the child must override it
 
 ## Private vs Internal
 
-There are two ways to make a function not accessible from the outside world: giving them a private or internal modifier. The distinction is simple.
+There are two ways to make a function not accessible from the outside world: giving them a `private` or `internal` modifier. The distinction is simple.
 
 Private functions (and variables) cannot be _seen_ by the child contracts.
 

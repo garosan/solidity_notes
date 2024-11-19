@@ -95,7 +95,7 @@ contract Primitives {
      - dynamically-sized byte arrays.
 
      The term bytes in Solidity represents a dynamic array of bytes.
-     It’s a shorthand for byte[] .
+     It's a shorthand for byte[] .
     */
     bytes1 a = 0xb5; //  [10110101]
     bytes1 b = 0x56; //  [01010110]

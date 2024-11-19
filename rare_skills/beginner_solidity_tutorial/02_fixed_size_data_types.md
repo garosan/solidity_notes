@@ -39,7 +39,7 @@ contract DataTypes01 {
 
 In these examples, we assigned the value to a variable and then returned it. We can of course directly return the value like so.
 
-It’s very important that the function signature matches the return type. The following code will produce an error
+It's very important that the function signature matches the return type. The following code will produce an error
 
 ```solidity
 function getAddressFail()
@@ -74,7 +74,7 @@ Original vs 'checksummed' address (the last one has uppercase letters):
 
 ### uint256
 
-Let’s revisit uint256. The u means unsigned. It cannot represent negative numbers. The 256 means it can store numbers up to 256 bits large, or 2^256-1.
+Let's revisit uint256. The u means unsigned. It cannot represent negative numbers. The 256 means it can store numbers up to 256 bits large, or 2^256-1.
 
 This is the biggest number that can fit in a uint256:
 If you just change the last 5 to 6 you'll get an error.
@@ -94,6 +94,6 @@ Most of the time, you should only use uint256. The times you would use a smaller
 
 ### boolean
 
-Pretty obvious, it’s just like other languages. A bool variable holds either a true or a false. That’s it.
+Pretty obvious, it's just like other languages. A bool variable holds either a true or a false. That's it.
 
 [Original Article](https://www.rareskills.io/learn-solidity/solidity-types)

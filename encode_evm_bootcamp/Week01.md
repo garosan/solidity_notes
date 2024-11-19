@@ -183,7 +183,7 @@ A function can alter the contract's state, read it, or neither.
 
 Types of State Mutability
 
-- `pure` - these do not read or modify the blockchain state. They consume the least amount of gas when called externally, as they don’t interact with the blockchain state.
+- `pure` - these do not read or modify the blockchain state. They consume the least amount of gas when called externally, as they don't interact with the blockchain state.
 - `view` - can read data but can't modify the blockchain state. Calling them directly is gasless.
 - `payable` -
 - `non payable` - default mutability. They can read and modify state variables, allowing for full interaction with the contract, and thus pay gas.

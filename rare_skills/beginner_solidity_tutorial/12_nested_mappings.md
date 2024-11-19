@@ -42,7 +42,7 @@ In another language setting the above with `1`, `2` and `100` would look like:
 
 Nested maps are quite common in smart contracts, unlike nested arrays.
 
-### Public Nested Mappings Don’t Work
+### Public Nested Mappings Don't Work
 
 Here's yet another strange quirk of Solidity. Solidity automatically creates getting functions for variables when you declare them as public. However, the public getter functions allow you to supply the necessary arguments.
 

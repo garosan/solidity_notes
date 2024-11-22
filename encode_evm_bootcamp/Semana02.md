@@ -202,10 +202,26 @@ rm ./test/*
 mkdir scripts/
 ```
 
-
-
-Nos quedamos aquí:
-
-https://youtu.be/1OSiN2I1lfQ?t=3947
-
 Lo último que hemos estado viendo es cómo agregar pruebas usando loadFixture y todos los hoops que tenemos qué brincar para obtener los valores exactos que requerimos para que nuestras pruebas funcionen correctamente.
+
+For the rest of the lesson we just saw different examples of how the tests would break if not using the correct parameters.
+
+## Session 08 - Thursday
+
+- [Video de la sesión](https://www.youtube.com/watch?v=OIdAUG1ggr4)
+- [Notas Github](https://github.com/Encode-Club-Solidity-Bootcamp/Lesson-08)
+
+Here we will learn to write deployment scripts.
+
+To run a script:
+npx hardhat run ./scripts/Test.ts
+
+## Homework
+
+• Develop and run scripts for “Ballot.sol” within your group to give voting rights, casting votes, delegating votes and querying results
+• Write a report with each function execution and the transaction hash, if successful, or the revert reason, if failed
+
+https://airtable.com/appdPRDngl0IGEYKT/shrhpnL6cmZ5bMSI6
+
+
+

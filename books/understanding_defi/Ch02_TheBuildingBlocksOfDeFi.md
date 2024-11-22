@@ -26,12 +26,39 @@ Blockchain currently runs on smart contracts that are triggered by tokens specif
 
 The platform will need some sort of operational software to allow nodes to run the platform.
 
+### Virtual machine
+
+Not all platforms use virtual machines. Ethereum’s virtual machine is probably the best known.
+
 ## Dapps
 
+DApps are similar to traditional applications. However, instead of being run on a centralized server, they run on a blockchain platform.
+
+The following are the four main elements of a true DApp.
+
+Incentivized
+Decentralized
+Open Source (Maybe)
+
 ## Wallets
+
+Your wallet has two keys, a public key and a private key. Your public key is what people use when they want to send you something.
+You also have a private key, which is the authorization to send assets out of your account. So, public key is assets in, private key is assets out.
 
 ## Stablecoins
 
 ## Governance Tokens
 
-## Conclusion
+Governance tokens are tokens that give the holder some sort of voting and/or proposal right over the blockchain project or its protocol.
+
+Many projects use the one token/one vote rule (each holder gets one vote).
+
+Other methods of offering governance capability exist, such as offering governance tokens to active members of the project or the project DAO, offering quadratic or other ranked voting models, or soul-bound governance tokens.
+
+Now that I’ve discussed the building blocks of DeFi, let’s look at some of the primary ways people have put these tools to use.
+
+### Lending
+
+This is what is getting most of the press, because this is the way people are making money.
+
+Collateralized loans are the core of what is powering DeFi right now.

@@ -41,7 +41,7 @@ And research a smart contract security tool called Slither.
 
 Example:
 
-```
+```solidity
 /// @title Liquidity token for Foo protocol
 /// @author Foo Incorporated
 /// @notice Notes for non-technical readers/
@@ -99,3 +99,5 @@ uint256 private constant SOME_BIG_NUMBER = 10_000_000_000;
 - If you need a lot of imports, you can import all the files and types into one solidity file, then import that file (you would need to intentionally break the rule about named imports).
 - Use libraries to group functions of the same category together and make files smaller.
 - Organizing large codebases is an art. The best way to learn it is to study codebases of large established projects.
+
+[RareSkills Original Article](https://www.rareskills.io/post/solidity-style-guide)

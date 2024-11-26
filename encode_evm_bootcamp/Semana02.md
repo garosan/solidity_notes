@@ -216,6 +216,116 @@ Here we will learn to write deployment scripts.
 To run a script:
 npx hardhat run ./scripts/Test.ts
 
+### 25-NOV-2024
+
+Empezamos utilizando el proyecto que ya teníamos con Ballot.sol
+
+El archivo se va a llamar scripts/DeployWithHardhat.ts
+
+```typescript
+import { viem } from "hardhat";
+import { toHex, hexToString, formatEther } from "viem";
+const PROPOSALS = ["Proposal 1", "Proposal 2", "Proposal 3"];
+
+async function main() {
+  console.log("Proposals: ");
+  PROPOSALS.forEach((element, index) => {
+    console.log(`Proposal N. ${index + 1}: ${element}`);
+  });
+  console.log("\nDeploying Ballot contract");
+  const ballotContract = await viem.deployContract("Ballot", [
+    PROPOSALS.map((prop) => toHex(prop, { size: 32 })),
+  ]);
+  console.log("Ballot contract deployed to:", ballotContract.address);
+  console.log("Proposals: ");
+  for (let index = 0; index < PROPOSALS.length; index++) {
+    const proposal = await ballotContract.read.proposals([BigInt(index)]);
+    const name = hexToString(proposal[0], { size: 32 });
+    console.log({ index, name, proposal });
+  }
+}
+
+main().catch((error) => {
+  console.error(error);
+  process.exitCode = 1;
+});
+
+```
+
+Y corremos `npx hardhat run ./scripts/DeployWithHardhat.ts`
+
+Ahora sí vamos a configurar nuuestro archivo hardhat.config.ts para deployar a una testnet real.
+
+`hardhat.config.ts`:
+
+```typescript
+import { task, type HardhatUserConfig } from "hardhat/config";
+import "@nomicfoundation/hardhat-toolbox-viem";
+
+const config: HardhatUserConfig = {
+  solidity: "0.8.27",
+  networks: {
+    sepolia: {
+      url: "https://ethereum-sepolia-rpc.publicnode.com",
+    },
+  },
+};
+
+task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
+  const accounts = await hre.viem.getWalletClients();
+  for (const account of accounts) {
+    console.log(account.account.address);
+  }
+});
+
+export default config;
+```
+
+Y corremos `npx hardhat run ./scripts/DeployWithHardhat.ts --network sepolia`
+
+You should get a DefaultWalletClientNotFoundError error. This is expected to happen because deploying a contract requires sending a transaction, and thus we need to specify an account to sign and pay for it.
+
+Create a .env file in the root of your project:
+
+```shell
+PRIVATE_KEY=****************************************************************
+POKT_API_KEY="********************************"
+INFURA_API_KEY="********************************"
+INFURA_API_SECRET="********************************"
+ALCHEMY_API_KEY="********************************"
+ETHERSCAN_API_KEY="********************************"
+```
+
+Now just follow the instructions from the correct section in here:
+https://github.com/Encode-Club-Solidity-Bootcamp/Lesson-08
+
+Hacemos npm install .env, hacemos los cambios necesarios en el hardhat.config.ts file y corremos otra vez el comando y ya podemos desplegar un contrato a una network pública!
+
+Ahora si queremos pasar argumentos a nuestro deploy script lo hacemos de esta manera, usando ts-node:
+
+`npx ts-node --files ./scripts/DeployWithViem.ts "arg1" "arg2" "arg3"`
+
+Crear este file `DeployWithViem.ts`:
+
+```typescript
+async function main() {
+  const proposals = process.argv.slice(2);
+  if (!proposals || proposals.length < 1)
+    throw new Error("Proposals not provided");
+  console.log("Proposals:");
+  proposals.forEach((element, index) => {
+    console.log(`Proposal N. ${index + 1}: ${element}`);
+  });
+}
+```
+
+[0x5472756d70000000000000000000000000000000000000000000000000000000, 0x4b616d616c610000000000000000000000000000000000000000000000000000, 0x414d4c4f00000000000000000000000000000000000000000000000000000000]
+
+2 repos for reference:
+https://github.com/rodoard/tokenized-ballot/tree/main/scripts
+https://github.com/Munaiz123/EncdeBootCamp_Group1/blob/main/Week2/Week2Submission.md
+
+
 ## Homework
 
 • Develop and run scripts for “Ballot.sol” within your group to give voting rights, casting votes, delegating votes and querying results

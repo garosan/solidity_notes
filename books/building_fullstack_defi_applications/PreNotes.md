@@ -119,4 +119,50 @@ Read more:
 - [PancakeSwap - Yield farms](https://docs.pancakeswap.finance/products/yield-farming)
 - [BNB Chain Hack](https://www.coindesk.com/business/2022/10/06/binance-linked-bnb-price-falls-close-to-4-on-hack-rumors)
 
-## Ch2. Getting Started with DeFi Application Development
+# Ch2. Getting Started with DeFi Application Development
+
+you will learn how to create a full stack DeFi project with Node.js, React.js, and Hardhat. We will also guide you through the process of developing, building, deploying, debugging, and testing smart contracts with these tools.
+
+## Creating a DeFi project
+
+Installing Node.js
+Creating a project with create-react-app
+Installing and configuring Hardhat
+
+Entonces, crear una React app (yo con Vite) y en el root folder correr:
+
+```shell
+npm install --save-dev hardhat
+rm README.md
+npx hardhat init
+```
+
+Options to select:
+
+```shell
+👷 Welcome to Hardhat v2.12.6 👷‍
+✔ What do you want to do? · Create a JavaScript project
+✔ Hardhat project root: · /Users/mymac/git/Building-Full-stack-DeFi-Application/defi-apps
+✔ Do you want to add a .gitignore? (Y/n) · y
+✔ Do you want to install this sample project's dependencies with npm (@nomicfoundation/hardhat-toolbox)? (Y/n) · y
+```
+
+After running npx hardhat, a new Hardhat configuration file, hardhat.config.js, is created in the project directory. We need to open this file and add the following highlighted lines to define four paths:
+
+```javascript
+require("@nomicfoundation/hardhat-toolbox");
+/** @type import('hardhat/config').HardhatUserConfig */
+module.exports = {
+  solidity: "0.8.17",
+  paths: {
+    sources: "./src/backend/contracts",
+    artifacts: "./src/backend/artifacts",
+    cache: "./src/backend/cache",
+    tests: "./src/backend/test",
+  },
+};
+```
+
+Then create the path folders
+
+`$ mkdir -p src/backend/{contracts,artifacts,cache,test}`

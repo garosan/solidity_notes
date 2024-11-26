@@ -1,6 +1,7 @@
 ## Session 09 - Monday
 
 [GH Link](https://github.com/Encode-Club-Solidity-Bootcamp/Lesson-09)
+[Youtube Video](https://www.youtube.com/watch?v=v4qM45Gv_ac)
 
 ### Links
 
@@ -15,8 +16,8 @@
 Create a new project5 folder, then:
 
 ```shell
-mkdir project5
-cd project5
+mkdir tokens
+cd tokens
 npm init -y
 npm install --save-dev hardhat
 npx hardhat init

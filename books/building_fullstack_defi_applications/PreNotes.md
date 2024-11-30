@@ -166,3 +166,64 @@ module.exports = {
 Then create the path folders
 
 `$ mkdir -p src/backend/{contracts,artifacts,cache,test}`
+
+## Writing, compiling, and deploying a smart contract in a local environment
+
+Before writing a smart contract, we need to install the OpenZeppelin
+
+`npm install @openzeppelin/contracts`
+
+### My own tests, I will be creating with Vite
+
+npm create vite@latest . -- --template react
+
+Then:
+
+npm install
+npm run dev
+
+npm install --save-dev hardhat
+rm README.md
+
+............ bunch of stuff
+
+Then:
+
+npx hardhat node
+
+
+npx hardhat run scripts/deploy.cjs --network localhost
+
+### Deploying a smart contract on Testnet
+
+Remember to npm i dotenv
+
+npx hardhat run scripts/deploy.cjs --network sepolia
+
+
+https://sepolia.etherscan.io/address/0x5B2aE816E92bE1b8022dC13eAB9fd77e3232e9C8
+
+
+npx hardhat run scripts/deploy.cjs --network baseMain
+npx hardhat run scripts/deploy.cjs --network arbitrumMain
+
+
+
+const contract = await ethers.getContractAt("SimpleDeFiToken", "0x5fbdb2315678afecb367f032d93f642f64180aa3")
+
+
+## 28-NOV-2024
+
+Mismo ejercicio pero usando create-react-app
+
+npx hardhat run scripts/deploy.js --network localhost
+
+npx hardhat run scripts/deploy.js --network ethereumSepolia
+npx hardhat run scripts/deploy.js --network arbitrumSepolia
+npx hardhat run scripts/deploy.js --network baseSepolia
+
+
+https://ethereum.stackexchange.com/questions/158885/error-hh19-your-project-is-an-esm-project-you-have-type-module-set-in-you
+
+
+Hay qué Downgrading "chai" from 5.00 to 4.3.7!!!!

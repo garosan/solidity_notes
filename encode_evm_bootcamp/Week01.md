@@ -2,7 +2,7 @@
 
 ## Session 01 - Monday
 
-Instructor: Matheus Pagain (@matheuspagani77)
+Instructor: Matheus Pagani (@matheuspagani77)
 
 Week 1: Solidity, Remix
 Week 2: Scripts, Deployments w/Hardhat

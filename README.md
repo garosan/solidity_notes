@@ -8,6 +8,7 @@ These are my personal notes from documentation, courses, bootcamps, etc.
 - [Solidity By Example Notes](./solidity_by_example/Index.md)
 - [Encode EVM Bootcamp](#)
 - [Arbitrum](./arbitrum/Index.md)
+- [Youtube Videos](./youtube/README.md)
 
 ## ⛲ Sources
 

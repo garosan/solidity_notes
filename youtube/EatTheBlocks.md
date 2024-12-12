@@ -43,3 +43,9 @@ Lessons Learned:
 3. Apply to freelance gigs
 4. Network
 5. Referrals
+
+## 🎦 Why Trump will make Blockchain developers rich (07-NOV-2024)
+
+[Link](https://www.youtube.com/watch?v=E7BX1CiiRnA)
+
+Reasons why Trump is pro-business, pro-crypto and what this could mean for the ecosystem.

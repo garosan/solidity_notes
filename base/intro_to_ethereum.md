@@ -155,3 +155,64 @@ In this scenario, Alice will lose all 100,000 units of gas. All state changes ar
 If the gas limit is set too low, the transaction may fail to execute, while if it is set too high, the sender may end up paying more in transaction fees than is necessary.
 
 Thankfully, most Ethereum wallet applications have built-in gas estimation algorithms that can automatically calculate an appropriate gas limit for a transaction based on the network conditions. This helps to prevent a transaction from failing from the gas limit being too low while optimizing for the best possible cost for the sender.
+
+## [EVM Diagram](https://docs.base.org/base-learn/docs/introduction-to-ethereum/evm-diagram)
+
+### What is the EVM?
+
+The Ethereum Virtual Machine (EVM) is the core engine of Ethereum. It is a Turing-complete, sandboxed virtual machine designed to execute smart contracts.
+
+The EVM employs a resource management system using gas to regulate computation and prevent network abuse.
+
+### EVM Components
+
+- **World State**: Represents the entire Ethereum network, including all accounts and their associated storage.
+- **Accounts**: Entities that interact with the Ethereum network, including Externally Owned Accounts (EOAs) and Contract Accounts.
+- **Storage**: A key-value store associated with each contract account, containing the contract's state and data.
+- **Gas**: A mechanism for measuring the cost of executing operations in the EVM, which protects the network from spam and abuse.
+- **Opcodes**: Low-level instructions that the EVM executes during smart contract processing.
+- **Execution Stack**: A last-in, first-out (LIFO) data structure for temporarily storing values during opcode execution.
+- **Memory**: A runtime memory used by smart contracts during execution.
+- **Program Counter**: A register that keeps track of the position of the next opcode to be executed.
+- **Logs**: Events emitted by smart contracts during execution, which can be used by external systems for monitoring or reacting to specific events.
+
+### EVM Execution Model
+
+In simple terms, when a transaction is submitted to the network, the EVM first verifies its validity. If the transaction is deemed valid, the EVM establishes an execution context that incorporates the current state of the network and processes the smart contract's bytecode using opcodes. As the EVM runs the smart contract, it modifies the blockchain's world state and consumes gas accordingly. However, if the transaction is found to be invalid, it will be dismissed by the network without further processing. Throughout the smart contract's execution, logs are generated that provide insights into the contract's performance and any emitted events. These logs can be utilized by external systems for monitoring purposes or to respond to specific events.
+
+### Gas and Opcode Execution
+
+Every opcode in a smart contract carries a specific gas cost, which reflects the computational resources necessary for its execution.
+
+Opcodes are the low-level instructions executed by the EVM. They represent elementary operations that allow the EVM to process and manage smart contracts.
+
+During execution, the EVM reads opcodes from the smart contract, and depending on the opcode, it may update the world state, consume gas, or revert the state if an error occurs. Some common opcodes include:
+
+- ADD: Adds two values from the stack.
+- SUB: Subtracts two values from the stack.
+- MSTORE: Stores a value in memory.
+- SSTORE: Stores a value in contract storage.
+- CALL: Calls another contract or sends ether.
+
+### Stack and Memory
+
+Stack and memory deal with temporary data during opcode execution.
+
+The stack is a last-in, first-out (LIFO) data structure that is used for temporarily storing values during opcode execution. It supports two primary operations: push and pop.
+
+During contract execution, memory serves as a collection of bytes, organized in an array, for the purpose of temporarily storing data.
+It can be read from and written to by opcodes.
+
+### EVM Architecture and Execution Context
+
+![Txn Img](https://docs.base.org/assets/images/evm-architecture-execution-2d3506a463bdd57cc7efc3e6cac09b39.png)
+
+Read more:
+
+- https://ethereum.org/en/developers/docs/evm/
+- https://cypherpunks-core.github.io/ethereumbook/13evm.html#evm_architecture
+
+## Guide to Base
+
+Finally read this:
+https://www.coinbase.com/developer-platform/discover/protocol-guides/guide-to-base

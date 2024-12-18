@@ -91,3 +91,67 @@ There are many other use cases from supply chain, energy, and intellectual prope
   - All data is public
 
 #### Web2 vs Web3 Development
+
+In Web2, engineering is centered around a client-server architecture. There is a top-down corporate approach to development processes, and code is generally proprietary and closed-sourced.
+
+The Web3 development paradigm is centered around a distributed architecture, where developers build applications that run on decentralized protocols and smart contracts. There is an emphasis on open-source code and open standards.
+
+Developers need to have a strong understanding of blockchain technology, cryptography, and distributed systems, and they also need to be proficient in programming languages like Solidity.
+
+There is also a different approach to testing and deployment. Because onchain apps run on distributed systems, developers need to consider factors like network latency and the possibility of network partitions. They also need to ensure that their applications are extremely secure and resistant to a variety of attacks.
+
+Developers also have to consider concepts like immutability because once code is deployed to a blockchain, it cannot be edited.
+
+Developers also need the ability to think creatively about how to build applications that are constrained by the technical limitations of the Web3 paradigm, such as speed, storage, and scalability.
+
+## [Gas Use in Ethereum Transactions](https://docs.base.org/base-learn/docs/introduction-to-ethereum/gas-use-in-eth-transactions)
+
+### What is gas?
+
+Unlike Bitcoin, where transaction fees only consider the size of a transaction, Ethereum accounts for every computational step performed.
+
+The amount of gas required for an operation depends on its complexity.
+
+#### State of the Network
+
+Gas costs can also vary depending on the congestion of the network. Basically, higher gas prices are more likely to get processed first.
+
+When the network is congested, gas prices increase to encourage more efficient use of the network's resources and decrease when network usage is lower.
+
+### Why is gas necessary?
+
+- Turing Completeness
+- Preventing Infinite Loops
+- Autonomous Execution
+
+### How does gas work?
+
+- Gas fees are paid in ETH.
+- Wei is the smallest denomination of Ethereum and is equivalent to 10^-18 ETH.
+- 1 ETH = 1,000,000,000,000,000,000 wei
+- Gwei is commonly used to express the price of gas. One Gwei is equivalent to 10^-9 ETH.
+- 1 ETH = 1,000,000,000 gwei
+
+#### Gas Price
+
+Gas fee is calculated as the product of the gas price and the amount of gas required for an operation.
+
+For example, if the gas price is 50 gwei, and an operation requires 100,000 units of gas, the gas fee would be 0.005 ETH (50 gwei x 100,000 gas = 0.005 ETH).
+
+#### Gas Limit
+
+It defines the maximum amount of gas a user is willing to spend for a transaction to be processed.
+
+The EVM, upon receiving a transaction, starts deducting the used gas from the gas limit.
+
+If the transaction completes before reaching the gas limit, the remaining unused gas is refunded to the user's account.
+
+Let's now consider a scenario where Alice wants to execute a transaction and she set the gas limit at 100,000 units. The transaction has consumed 99,998 units of gas and there is only one opcode left to execute. The EVM initiates the execution **because there is still some gas left to start the execution** but in the middle of it, gas runs out. At this point, the EVM throws an "Out of Gas" exception and halts the transaction.
+
+In this scenario, Alice will lose all 100,000 units of gas. All state changes are rolled back and the transaction is not completed.
+
+#### Gas Estimation
+
+If the gas limit is set too low, the transaction may fail to execute, while if it is set too high, the sender may end up paying more in transaction fees than is necessary.
+
+Thankfully, most Ethereum wallet applications have built-in gas estimation algorithms that can automatically calculate an appropriate gas limit for a transaction based on the network conditions. This helps to prevent a transaction from failing from the gas limit being too low while optimizing for the best possible cost for the sender.

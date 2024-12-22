@@ -2,7 +2,7 @@
 
 ## 📄 Table of Contents
 
-These are my personal notes from documentation, courses, bootcamps, etc.
+Personal notes from documentation, courses, bootcamps, etc.
 
 - [RareSkills Notes](./rare_skills/Index.md)
 - [Solidity By Example Notes](./solidity_by_example/Index.md)
